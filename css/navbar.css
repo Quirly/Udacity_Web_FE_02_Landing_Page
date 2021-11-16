@@ -1,0 +1,27 @@
+.NavBar{
+    background-color: lightgray;
+    padding: 0px;
+}
+
+.links {
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap:15px;
+    text-align:center;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1em;
+    margin: 2em 1rem;
+    border-color: darkblue;
+    color:darkblue;
+    padding: 20px;
+    margin:5px;
+}
+
+a {
+    color:darkblue;
+  }
+
+a:active {
+    color:lightblue;
+  }

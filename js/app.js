@@ -20,23 +20,23 @@
 
 /**
  * Define Global Variables
- * 
 */
-
-
+const nav_bar_building = document.createDocumentFragment();
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
-
-
-
+for (let i = 0; i < 3; i++) {
+    const nav_bar = document.createElement('div');
+    nav_bar_building.appendChild(nav_bar);
+}
 /**
  * End Helper Functions
  * Begin Main Functions
  * 
 */
+document.body.appendChild(nav_bar_building);
 
 // build the nav
 
@@ -50,7 +50,7 @@
 /**
  * End Main Functions
  * Begin Events
- * 
+ *
 */
 
 // Build menu 
