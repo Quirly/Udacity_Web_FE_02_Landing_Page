@@ -1,9 +1,13 @@
-.NavBar{
+#NavBar{
     background-color: lightgray;
     padding: 0px;
 }
 
-.links {
+#MyDiv{
+  font-size: 20px;
+}
+
+#links {
     display: grid;
     grid-template-rows: 100%;
     grid-template-columns: 1fr 1fr 1fr 1fr;

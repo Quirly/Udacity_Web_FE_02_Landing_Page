@@ -9,20 +9,14 @@
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/navbar.css" rel="stylesheet">
+
   <nav>
-    <div class="NavBar">
-      <div class="links">
-        <a href="#">Section 1</a>
-        <a href="#">Section 2</a>
-        <a href="#">Section 3</a>
-        <a href="#">Section 4</a>
-      </div>
-    </div>
   </nav>
 </head>
 <body>
   <!-- HTML Follows BEM naming conventions 
   IDs are only used for sections to connect menu achors to sections -->
+  <div id="myDIV">TEST TEST TEST TEST</div>
   <header class="page__header">
     <nav class="navbar__menu">
       <!-- Navigation starts as empty UL that will be populated with JS -->
@@ -31,7 +25,7 @@
   </header>
   <main>
     <header class="main__hero">
-      <h1>Landing Page </h1>
+      <h1>Landing Page</h1>
     </header>
     <!-- Each Section has an ID (used for the anchor) and 
     a data attribute that will populate the li node.
@@ -67,4 +61,6 @@
   </footer>
 
 </body>
+  <script src="./js/app_test.js">
+  </script>
 </html>
