@@ -78,4 +78,4 @@ function function_udacity_landing_short() {
 
 /** If DOM is ready, the navigation bar is build by the main function dynamically; event listeners are added*/
 document.addEventListener('DOMContentLoaded', function_udacity_landing_short);
-document.addEventListener('scroll, addClass());
+document.addEventListener('scroll', addClass());
