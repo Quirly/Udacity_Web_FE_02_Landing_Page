@@ -26,7 +26,7 @@ function addClass() {
 
     sections.forEach(function (section) {
         if (isInViewport(section)) {
-            section.classList.addClass("Your-active-class");
+            section.classList.add("Your-active-class");
         }
     })
 }
