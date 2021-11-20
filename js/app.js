@@ -23,8 +23,9 @@ function help_remove_classes() {
 
 function addClass() {
     sections.forEach(function (section) {
-        let res = isInViewport(section);
-        if (res == true) { section.classList.add("Your-active-class") }
+        if (isInViewport(section)) {
+            section.classList.add("your-active-class");
+        }
     });
 }
 
