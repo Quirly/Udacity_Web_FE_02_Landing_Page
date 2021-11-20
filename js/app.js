@@ -18,17 +18,14 @@ let sections = Array.from(document.getElementsByTagName("section"));
 */
 /** Remove classes if a section is clicked in navigation bar */
 function help_remove_classes() {
-    let sections = Array.from(document.getElementsByTagName("section"));
     sections.forEach(function (section) { section.classList.remove("your-active-class") });
 }
 
 function addClass() {
-
     sections.forEach(function (section) {
-        if (isInViewport(section)) {
-            section.classList.add("Your-active-class");
-        }
-    })
+        let res = isInViewport(section);
+        if (res == true) { section.classList.add("Your-active-class") }
+    });
 }
 
 function isInViewport(element) {
