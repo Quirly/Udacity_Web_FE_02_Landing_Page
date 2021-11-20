@@ -12,75 +12,70 @@
  * JS Standard: ESlint
  * 
 */
+let sections = Array.from(document.getElementsByTagName("section"));
 /**
-document.addEventListener("DOMContentLoaded", function () {
-    create_bar();
-})
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
+* Begin Helper Functions
 */
-/** 
-document.addEventListener("DOMContentLoaded", function () {
-    test();
-})
-*/
-document.addEventListener("click", function () {
-    console.log("test");
+/** Remove classes if a section is clicked in navigation bar */
+function help_remove_classes() {
+    let sections = Array.from(document.getElementsByTagName("section"));
+    sections.forEach(function (section) { section.classList.remove("your-active-class") });
+}
+
+function addClass() {
+
+    sections.forEach(function (section) {
+        if (isInViewport(section)) {
+            section.classList.addClass("Your-active-class");
+        }
+    })
+}
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
 }
 
 /**
- * Define Global Variables
+* End Helper Function
 */
+
 /**
-const nav_bar_building = document.createDocumentFragment();
-/**
- * End Global Variables
- * Start Helper Functions
- *
+* Begin Main Function
 */
-/**
-function create_bar() {
+function function_udacity_landing_short() {
+    /**
+    * Set navigation bar as variable ul
+    */
+    const ul = document.getElementById("navbar__list");
 
-    const NavBar = document.createElement('div');
-    nav_bar_building.appendChild(NavBar);
+    let sections = Array.from(document.getElementsByTagName("section"));
+    let no_sections = sections.length;
 
-    for (let i = 0; i < (n - 1); i++) {
-        const link_sec = document.createElement('a');
-        NavBar.appendChild(link_sec);
-    }
+    /** Create list element as first item in navigation bar left, start with MAIN */
+    const i = 0;
+
+    sections.forEach(function (section, i) {
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(section.id));
+        ul.appendChild(li);
+        ul.childNodes[i].addEventListener('click', function () { section.scrollIntoView({ behavior: 'smooth' }); help_remove_classes(), false });
+        i++;
+        let new_end = i;
+    })
+
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode("Main"));
+    ul.appendChild(li).addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); help_remove_classes(), false });
 }
 
-/**
- * End Helper Functions
- * Begin Main Functions
- *
-*/
-/**
-document.head.appendChild(nav_bar_building);
-
-// build the nav
 
 
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- *
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-/**
- * End Helper Functions
- * Begin Main Functions
- *
-*/);
+/** If DOM is ready, the navigation bar is build by the main function dynamically; event listeners are added*/
+document.addEventListener('DOMContentLoaded', function_udacity_landing_short);
+document.addEventListener('scroll, addClass());

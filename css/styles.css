@@ -72,6 +72,10 @@ section {
 
 .navbar__menu li {
     display: inline-block;
+    font-family: 'Fira Sans', sans-serif;
+    color: darkblue;
+    padding: 10px;
+    border-bottom:yellow;
 }
 
 .navbar__menu .menu__link {
@@ -79,12 +83,12 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 
 .navbar__menu .menu__link:hover {
     background: #333;
-    color: #fff;
+    color: black;
     transition: ease 0.3s all;
 }
 
