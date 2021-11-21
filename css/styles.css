@@ -58,6 +58,7 @@ main {
 section {
     position: relative;
     min-height: 80vh;
+    padding-top: 175px;
 }
 
 
@@ -71,11 +72,17 @@ section {
 }
 
 .navbar__menu li {
-    display: inline-block;
+    display: flex;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     font-family: 'Fira Sans', sans-serif;
+    font-size:medium;
+    border-color: darkblue;
     color: darkblue;
     padding: 10px;
-    border-bottom:yellow;
+    border-color: cadetblue;
+    margin-bottom:5px;
+    text-align: center;
+    justify-content: center;
 }
 
 .navbar__menu .menu__link {
@@ -224,4 +231,18 @@ section.your-active-class .landing__container::after {
 		           translate(-1em) 
 		           rotate(-360deg);
 	}
+}
+
+@media(min-width:760px) {
+    
+.navbar__menu li {
+display: inline-block;
+justify-content: center;
+font-size:medium;
+}
+
+section {
+    padding-top: 125px;
+}
+    
 }
