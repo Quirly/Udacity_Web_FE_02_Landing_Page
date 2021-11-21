@@ -14,6 +14,7 @@
 /** Global Variables: Sections and Number of Sections */
 let sections = Array.from(document.getElementsByTagName("section"));
 let no_sections = sections.length;
+const ul = document.getElementById("navbar__list");
 /**
 * Begin Helper Functions
 */
@@ -24,26 +25,44 @@ function help_remove_classes() {
 
 /** Helper 2: Calls isInViewport function to check if an element is visible. Adds "your-active-class" if so.*/
 function function_check_viewport_add_class() {
+    console.log("test");
+    const ul = document.getElementById("navbar__list");
     help_remove_classes();
+    let counter = 0;
+    let counter_f = 0;
     sections.forEach(function (section) {
+        /** Check if section is visible on screen; if yes start routine for highlighting section and link */
         let x = isInViewport(section);
+        counter = counter + 1
         if (x == true) {
+            /** Highlight section on screen by adding "your-active-class" to section */
+            /** all other links are cleaned and "your-active-class" is removed if present */
+            /** CSS styling differs if "your-active-class" is present */
             section.classList.add("your-active-class");
+            /** Highlight link by adding "active-section" class to navbar item */
+            /** all other links are cleaned and "active-section" is removed if present */
+            /** CSS styling differs if "active-section" is present */
+            counter_f = counter;
+            for (let i = 0; i < no_sections; i++) {
+                if (i + 1 == counter_f) { ul.childNodes[i].classList.add("active-section"); console.log(counter_f); }
+                else { ul.childNodes[i].classList.remove("active-section"); }
+            }
         }
     });
 }
+
 
 /** Helper 3: Checks if an element is visible. Returns True if so.*/
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
+        /** Top and left of element are minimum 0 if element is visible on screen */
         rect.top >= 0 &&
         rect.left >= 0 &&
         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
-
 
 /**
 * End Helper Functions
@@ -56,7 +75,6 @@ function isInViewport(element) {
 function function_udacity_landing_short() {
 
     /** Set navigation bar as variable ul */
-    const ul = document.getElementById("navbar__list");
 
     /** Create list element as first item in navigation bar left, start with MAIN */
     const i = 0;
@@ -84,7 +102,6 @@ function function_udacity_landing_short() {
 /**
 * Begin Event Listeners
 */
-
 /** If DOM is ready, the navigation bar is build by the main function dynamically; event listeners are added*/
 document.addEventListener('DOMContentLoaded', function_udacity_landing_short);
 /** If the user scrolls, it shall be checked which section is in the viewport to highlight it in the navigation bar */
