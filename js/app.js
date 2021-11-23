@@ -126,7 +126,6 @@ function function_udacity_landing_short() {
 /** If DOM is ready, the navigation bar is build by the main function dynamically; event listeners are added*/
 document.addEventListener('DOMContentLoaded', function_udacity_landing_short);
 /** If the user scrolls, it shall be checked which section is in the viewport to highlight it in the navigation bar */
-/**document.addEventListener('touchstart', function_check_viewport_add_class);**/
 document.addEventListener('scroll', function_check_viewport_add_class);
 /**
 * End Event Listeners
