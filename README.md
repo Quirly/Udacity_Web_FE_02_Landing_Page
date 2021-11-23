@@ -41,7 +41,7 @@ classes lead to a different CSS styling. All other elements (sections, links) ar
 were the classes ("your-active-class" and "active-section") applied, they are removed. This ensures that only
 the visible section is highlighted and all others are not.
 
-The page layout is responsive. If the screen is small, the navigation bar is arranged in rows instead of columns.
+The page layout is responsive. If the screen is small, the navigation bar is arranged in rows instead of
 
 ## User Manual
 

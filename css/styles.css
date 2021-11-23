@@ -72,6 +72,8 @@ section {
 }
 
 .navbar__menu li {
+
+    /**display: inline-block;*/
     display: grid;
     grid-template-rows: auto;
     font-family: 'Fira Sans', sans-serif;
@@ -141,7 +143,9 @@ section:nth-of-type(even) .landing__container {
 }
 
 .active-section{
-    background-color:white;
+    display: inline-block;
+    border-style: solid;
+    background-color: lightgrey;
 }
 
 /* Background Circles */

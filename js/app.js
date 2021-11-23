@@ -31,8 +31,13 @@ function function_check_viewport_add_class() {
     let counter = 0;
     let counter_f = 0;
     sections.forEach(function (section) {
-        /** Check if section is visible on screen; if yes start routine for highlighting section and link */
-        let x = isInViewport(section);
+        let x = true;
+        if (window.screen.width < 900) {
+            x = isVisible(section);
+        }
+        else {
+            x = isInViewport(section);
+        };
         counter = counter + 1
         if (x == true) {
             /** Highlight section on screen by adding "your-active-class" to section */
@@ -44,25 +49,41 @@ function function_check_viewport_add_class() {
             /** CSS styling differs if "active-section" is present */
             counter_f = counter;
             for (let i = 0; i < no_sections; i++) {
-                if (i + 1 == counter_f) { ul.childNodes[i].classList.add("active-section"); console.log(counter_f); }
+                if (i + 1 == counter_f) { ul.childNodes[i].classList.add("active-section"); }
                 else { ul.childNodes[i].classList.remove("active-section"); }
+            }
+            if (window.scrollY == 0) {
+                section[0].classList.add("your-active-class");
+                ul.childNodes[0].classList.add("active-section");
             }
         }
     });
 }
 
+/** Helper 3/4: Checks if an element is visible. Returns True if so.*/
 
-/** Helper 3: Checks if an element is visible. Returns True if so.*/
+/** Helper 3: Check Visibility on Tablet and Laptop screens*/
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
         /** Top and left of element are minimum 0 if element is visible on screen */
-        rect.top >= 0 &&
+        /**rect.top >= 0 &&*/
         rect.left >= 0 &&
         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
+
+/** Helper 4: Check Visibility on smaller mobile screens with a width <900px */
+function isVisible(ele) {
+    const { top, bottom } = ele.getBoundingClientRect();
+    const vHeight = (window.innerHeight || document.documentElement.clientHeight);
+    return (
+        (top > 5 || bottom > 5) &&
+        top < vHeight
+    );
+}
+
 
 /**
 * End Helper Functions
@@ -84,7 +105,7 @@ function function_udacity_landing_short() {
         let li = document.createElement("li");
         li.appendChild(document.createTextNode(section.id));
         ul.appendChild(li);
-        ul.childNodes[i].addEventListener('click', function () { section.scrollIntoView({ behavior: 'smooth' }), false });
+        ul.childNodes[i].addEventListener('click', function () { section.scrollIntoView({ behavior: 'smooth' }); help_remove_classes(), false });
         i++;
         let new_end = i;
     })
@@ -92,7 +113,7 @@ function function_udacity_landing_short() {
     /** Add Main item to navigation bar to allow the user to scroll to top anytime*/
     let li = document.createElement("li");
     li.appendChild(document.createTextNode("Main"));
-    ul.appendChild(li).addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }), false });
+    ul.appendChild(li).addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); section.offsetHeight; help_remove_classes(), false });
 }
 
 /**
@@ -105,8 +126,8 @@ function function_udacity_landing_short() {
 /** If DOM is ready, the navigation bar is build by the main function dynamically; event listeners are added*/
 document.addEventListener('DOMContentLoaded', function_udacity_landing_short);
 /** If the user scrolls, it shall be checked which section is in the viewport to highlight it in the navigation bar */
+/**document.addEventListener('touchstart', function_check_viewport_add_class);**/
 document.addEventListener('scroll', function_check_viewport_add_class);
-
 /**
 * End Event Listeners
 */
