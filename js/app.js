@@ -113,7 +113,7 @@ function function_udacity_landing_short() {
     /** Add Main item to navigation bar to allow the user to scroll to top anytime*/
     let li = document.createElement("li");
     li.appendChild(document.createTextNode("Main"));
-    ul.appendChild(li).addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); section.offsetHeight; help_remove_classes(), false });
+    ul.appendChild(li).addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); ul.childNodes[0].classList.add("your-active-class"); help_remove_classes(), false });
 }
 
 /**
