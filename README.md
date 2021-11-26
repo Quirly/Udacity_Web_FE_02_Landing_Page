@@ -25,7 +25,7 @@ responsive.
 As it is best practices to separate styling (css), structure (html) and functionality (javascript), I have added the
 app.js-file to the index.html file. I put it on the end to ensure, that every DOM element had been rendered and interpreted before code will be applied to it. Event listening will only start if the DOM is loaded which is ensured by the "DOMContentLoaded" event listener in app.js.
 
-## Various amount of section items
+## Dynamic number of sections
 
 Event Listener 1: DOM is loaded
 
