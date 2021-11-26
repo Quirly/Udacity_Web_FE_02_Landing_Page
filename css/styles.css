@@ -18,6 +18,10 @@ body {
     color: #fff;
 }
 
+#go_to_top{
+    color:white;
+    background-color:lightslategray;
+}
 
 /* Typeography General*/
 h1 {
@@ -78,11 +82,9 @@ section {
     grid-template-rows: auto;
     font-family: 'Fira Sans', sans-serif;
     font-size:medium;
-    border-color: darkblue;
     color: darkblue;
     padding: 10px;
-    border-color: cadetblue;
-    margin-bottom:5px;
+    margin-bottom:1px;
     text-align: center;
     justify-content: center;
 }
@@ -145,7 +147,7 @@ section:nth-of-type(even) .landing__container {
 .active-section{
     display: inline-block;
     border-style: solid;
-    background-color: lightgrey;
+    background-color:lightgrey;
 }
 
 /* Background Circles */
@@ -247,6 +249,8 @@ section.your-active-class .landing__container::after {
 display: inline-block;
 justify-content: center;
 font-size:medium;
+border-top-color: darkslateblue;
+border-bottom-color: darkslateblue;
 }
 
 section {
