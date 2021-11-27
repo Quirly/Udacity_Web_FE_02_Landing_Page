@@ -25,7 +25,6 @@ function help_remove_classes() {
 
 /** Helper 2: Calls isInViewport function to check if an element is visible. Adds "your-active-class" if so.*/
 function function_check_viewport_add_class() {
-    console.log("test");
     const ul = document.getElementById("navbar__list");
     help_remove_classes();
     let counter = 0;
@@ -53,8 +52,10 @@ function function_check_viewport_add_class() {
                 else { ul.childNodes[i].classList.remove("active-section"); }
             }
             if (window.scrollY == 0) {
-                section[0].classList.add("your-active-class");
-                ul.childNodes[0].classList.add("active-section");
+                if (typeof section[0] != "undefined") {
+                    section[0].classList.add("your-active-class");
+                    ul.childNodes[0].classList.add("active-section");
+                }
             }
         }
     });
